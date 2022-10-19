@@ -1,14 +1,7 @@
 from array import *
 import os
 
-rows = {
-    'A' : 0,
-    'B' : 1,
-    'C' : 2,
-    'a' : 0,
-    'b' : 1,
-    'c' : 2
-}
+
 
 def printBoard():
     print("A: " + board[0][0] + " " + board[0][1] + " " +  board[0][2] + "\nB: " +
@@ -44,11 +37,19 @@ def checkIfWon(player):
     
 
 def playMove(currentPlayer):
+    rows = {
+        'A' : 0,
+        'B' : 1,
+        'C' : 2,
+        'a' : 0,
+        'b' : 1,
+        'c' : 2
+    }
     printBoard()
     print("\nPlayer " + currentPlayer + ": input what spot you want to take")
     playerInput = input()
-    row = rows[playerInput[:1]]()
-    column = int(playerInput[1:]) -1
+    row = rows[playerInput[0:1]]
+    column = int(playerInput[1:2]) -1
 
     if(board[row][column] == empty):
         move(row, column, currentPlayer)
